@@ -86,6 +86,9 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
+pyvenv.cfg
+bin/
+pip-selfcheck.json
 
 # Spyder project settings
 .spyderproject
@@ -99,3 +102,12 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# PyCharm
+.idea/
+
+# Google
+/client_secrets.json
+
+#Mac OS X
+.DS_Store
