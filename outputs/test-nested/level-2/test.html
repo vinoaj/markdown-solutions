@@ -1,0 +1,51 @@
+<p>Title: Google Cloud Platform: assigning a static IP address to a VM instance</p>
+
+<p>An external IP address is assigned to every Google Cloud Platform virtual machine (VM) instance that you create. </p>
+
+<p>This IP address can be used in your DNS settings so that users can access the instance via a domain name. The problem, however, is that the IP address resets whenever the VM instance is restarted. This means that every time you restart your VM instance, you will need to update your various configurations (e.g. DNS, load balancing) to reference the new IP address.</p>
+
+<p>You can bypass this issue by <strong>reserving and assigning a static IP address</strong> for an instance. An added bonus is that this is free! However, you will be <a target="_blank" href="https://cloud.google.com/compute/pricing?hl=en_US#ipaddress">charged USD$0.01/hour for unused IP addresses</a> - i.e. reserved static IP addresses that are not attached to an instance or forwarding rule.</p>
+
+<p>[adinserter block=1]</p>
+
+<h1>Concepts</h1>
+
+<h2>Regional vs Global IP addresses</h2>
+
+<p><strong>Regional</strong> IP addresses can be used by:</p>
+
+<ul>
+<li>VM instances</li>
+<li><em>Network</em> load balancers</li>
+</ul>
+
+<p><strong>Global</strong> IP addresses are used for <em>global</em> load balancers.</p>
+
+<h1>How to reserve and assign a static IP address to a Google Cloud Platform VM instance</h1>
+
+<p>Navigate to the Google Cloud Platform Console page for your project.</p>
+
+<p>Using the left-hand menu, navigate to <em>Networking &gt; VPC network &gt; External IP addresses</em>
+[TODO: image]</p>
+
+<p>Click on <em>+ Reserve Static Address</em>
+[TODO: image]</p>
+
+<p>Edit the settings:</p>
+
+<ul>
+<li><strong>Name</strong>: a name to describe this IP reservation (e.g. "webserver-primary-ip")</li>
+<li><strong>IP version</strong>: IPv4 or IPv6 depending on your needs</li>
+<li><strong>Type</strong>: Regional if you want to use it for accessing a VM instance</li>
+<li><strong>Region</strong>: Select the same region as where your VM instance lives</li>
+<li><em>*Attached to</em>: Select the instance you wish to attach the static IP address to</li>
+<li>Click on <em>Reserve</em> to save your settings
+[TODO: image]</li>
+</ul>
+
+<p>You will be taken back to the <a target="_blank" href="https://console.cloud.google.com/networking/addresses/list">External IP addresses list page</a>. Here you can see the new IP address that has been assigned to your instance.
+[TODO: image]</p>
+
+<p>This IP address can now be used in your DNS settings.</p>
+
+<p>[adinserter block=1]</p>

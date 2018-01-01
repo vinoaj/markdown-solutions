@@ -10,16 +10,25 @@ def traverse_dirs():
     for root, dirs, files in os.walk(input_dir):
         # print(root)
         # print(root, dirs, files)
+
         for f in files:
             md_path = os.path.join(root, f)
-            print(md_path)
-            with open(md_path, "r") as md_file:
-                o = convert_to_html(md_file.read())
+            # print(md_path)
+
+            with open(md_path, 'r') as md_file:
+                html_output = convert_to_html(md_file.read())
+
+                fn_root, fn_ext = os.path.splitext(f)
+                fn_new = fn_root + '.html'
+
                 out_subdir = root.replace(input_dir, '')
-                out_path = os.path.join(config.OUTPUT_DIR, out_subdir, f)
-                print(root, '---->', out_subdir, '---->', out_path)
+                out_path = os.path.join(config.OUTPUT_DIR, out_subdir,
+                                        fn_new)
+                # print(root, '---->', out_subdir, '---->', out_path)
 
-
+                os.makedirs(os.path.dirname(out_path), exist_ok=True)
+                with open(out_path, 'w') as out_file:
+                    out_file.write(html_output)
 
 
 def convert_to_html(content_md):
