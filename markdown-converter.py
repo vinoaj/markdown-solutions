@@ -13,7 +13,7 @@ def traverse_dirs():
 
         for f in files:
             md_path = os.path.join(root, f)
-            # print(md_path)
+            #print(md_path)
 
             with open(md_path, 'r') as md_file:
                 html_output = convert_to_html(md_file.read())
