@@ -2,7 +2,7 @@ import config
 import os
 from markdown2 import Markdown
 
-md = Markdown(extras=["target-blank-links"])
+md = Markdown(extras=["tables","target-blank-links"])
 
 
 def traverse_dirs():
