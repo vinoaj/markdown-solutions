@@ -1,0 +1,16 @@
+<p>There may be occasions where you need to retrieve or modify Google Tag Manager data layer values on the client using JavaScript. </p>
+
+<p>Trying to directly access the values through the <code>dataLayer</code> object is not straightforward. If you inspect a <code>dataLayer</code> object on a page, you will see that it looks something like:</p>
+
+<p>The dataLayer object is a collection of dataLayer states at each event recorded by Google Tag Manager. Therefore in order to find the current state of a dataLayer variable, you will need to access the <code>dataLayer</code> object, find the last recorded state, and retrieve the value from there.</p>
+
+<p>Thankfully the Google Tag Manager JavaScript API provides convenience functions to access and manipulate the values of data layer variables.</p>
+
+<p><strong>Get the value of a variable</strong>
+<code>window['google_tag_manager']['GTM-XXXXXXX'].dataLayer.get('nameOfVariable');</code></p>
+
+<p><strong>Set the value of a variable</strong>
+<code>window['google_tag_manager']['GTM-XXXXXXX'].dataLayer.set('nameOfVariable', 'newValue');</code></p>
+
+<p><strong>Reset a variable</strong>
+<code>window['google_tag_manager']['GTM-XXXXXXX'].dataLayer.reset('nameOfVariable');</code></p>
